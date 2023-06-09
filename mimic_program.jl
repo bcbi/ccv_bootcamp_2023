@@ -2,9 +2,6 @@
 # process file and tabulate admission location breakdown
 
 function main()
-
-    # println("hello world!")
-
     # input files
     admissions_file_name = "admissions.csv"
 
@@ -23,7 +20,7 @@ function main()
 
     for line in eachline(input_admissions_file)
 
-        #println(line)
+        # println(line)
 
         # skip first line (header)
         line_count += 1
@@ -48,7 +45,8 @@ function main()
     # print out counts to STDOUT and output file
     for a_loc in keys(count_dict)
         println("$(a_loc)|$(count_dict[a_loc])")
-        print(output_count_file, "$(a_loc)|$(count_dict[a_loc])\n")
+        print(output_count_file, "$(count_dict[a_loc])|$(a_loc)\n")
+
     end
 
     # close output file
@@ -58,17 +56,13 @@ end
 # run main function
 main()
 
-
-
-
-
 #=
-    # *** TO DO IN CLASS ***
-    # println("$(count_dict[a_loc])\t$(lowercase(a_loc))")
+    # *** TO DO IN CLASS IF TIME ***
+    # println("$(lowercase(a_loc))|$(count_dict[a_loc])")
 
     # print out counts (sorted in descending order)
     for (count, a_loc) in sort(collect(zip(values(count_dict),keys(count_dict))), rev=true)
-        # print to output_file
-        print(output_count_file, "$(count_dict[a_loc])\t$(a_loc)\n")
+        println("$(a_loc)|$(count_dict[a_loc])")
+        print(output_count_file, "$(a_loc)|$(count_dict[a_loc])\n")
     end
 =#
