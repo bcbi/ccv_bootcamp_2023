@@ -25,11 +25,6 @@ main <- function() {
     # get admission location from line
     a_loc <- line_part_array[8]
     
-    # handle missing admission locations
-    if (is.na(a_loc) || a_loc == "") {
-      a_loc <- " "
-    }
-    
     # tabulate admission locations
     if (!(a_loc %in% names(count))) {
       count[[a_loc]] <- 1
